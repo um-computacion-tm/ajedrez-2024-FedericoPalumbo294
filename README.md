@@ -26,3 +26,19 @@ source venv/bin/activate ---Activamos el entorno virtual
 
 # Test Coverage
 [![Test Coverage](https://api.codeclimate.com/v1/badges/96bb727d6f649e127dd3/test_coverage)](https://codeclimate.com/github/um-computacion-tm/ajedrez-2024-FedericoPalumbo294/test_coverage)
+
+# Pasos a seguir para crear el juego
+<!--
+Primero: Definire la estructura del tablero en board.py y las clases de las piezas en piece.py. 
+Segundo: Una vez terminado seguire con la lógica del juego en chess.py.
+Tercero: Terminado la lógica del juego ya puedes trabajar en la interfaz de usuario en main.py
+Cuarto: Por ultimo necesito utilizar Docker para ejecutar mi juego: 
+1.Crea un Dockerfile: Creo Dockerfile en la raíz de tu proyecto para configurar el entorno de Docker.
+2.Construye la imagen: Ejecutar "docker build -t AJEDREZ ." en la terminal para construir la imagen de Docker basada en tu Dockerfile.
+3.Ejecuta el contenedor: Ejecuar "docker run -it AJEDREZ" para ejecutar el juego dentro de un contenedor Docker.
+-->
+
+# creacion de las carpetas iniciales
+<!-- 
+Cree las carpetas iniciales (board.py, chess.py y piece.py)
+-->
