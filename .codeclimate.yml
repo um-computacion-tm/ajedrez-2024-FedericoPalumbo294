@@ -1,4 +1,4 @@
-version: 2
+version: 
 checks:
   argument-count:
     enabled: true
