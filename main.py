@@ -1,1 +1,0 @@
-print ("Bienvenidos a mi juego de ajedrez")
