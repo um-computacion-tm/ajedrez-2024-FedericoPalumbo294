@@ -1,0 +1,3 @@
+from game.piece import Piece
+class king(Piece):
+    ...
