@@ -1,5 +1,9 @@
 # Changelog
 
+## 20/08/2024
+
+- Chess method & test added
+
 ## 17/08/2024
 
 - Cree archivos "bord.py, piece.py y chess.py" Vacios.
