@@ -1,5 +1,8 @@
 # Changelog
 
+## 21/08/2024
+- Board Method & test added
+
 ## 20/08/2024
 
 - Chess method & test added
