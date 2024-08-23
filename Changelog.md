@@ -18,3 +18,9 @@
 
 ## 19/08/2024
 - cree las fichas king, pawn, queen, rook para importarlas a board y logre que funcionara el el test board
+## 20/08/2024
+- añadi codigo chess
+## 21/08/2024
+- añadi correcciones en el board 
+## 22/08/2024
+- hice el codigo piece y sus tests
