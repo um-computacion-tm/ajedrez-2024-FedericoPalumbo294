@@ -17,9 +17,6 @@ python3 -m venv venv ---Creamos el entorno virtual
 source venv/bin/activate ---Activamos el entorno virtual
 -->
 
-
-
-
 # Pasos a seguir para crear el juego
 <!--
 Primero: Clases de las piezas en archivo.py diferentes y despues la estructura del tablero en board.py.
