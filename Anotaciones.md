@@ -17,6 +17,13 @@ python3 -m venv venv ---Creamos el entorno virtual
 source venv/bin/activate ---Activamos el entorno virtual
 -->
 
+# Como cambiar de rama
+<!--
+git branch ---Veo en que rama estoy
+git checkout develop ---Me cambio a la rama develop
+git checkout main ---Me cambio a la rama main
+-->
+
 # Pasos a seguir para crear el juego
 <!--
 Primero: Clases de las piezas en archivo.py diferentes y despues la estructura del tablero en board.py.
@@ -28,7 +35,3 @@ Cuarto: Por ultimo necesito utilizar Docker para ejecutar mi juego:
 3.Ejecuta el contenedor: Ejecuar "docker run -it AJEDREZ" para ejecutar el juego dentro de un contenedor Docker.
 -->
 
-# creacion de las carpetas iniciales
-<!-- 
-Cree las carpetas iniciales (board.py, chess.py y piece.py)
--->

@@ -4,11 +4,9 @@
 - Board Method & test added
 
 ## 20/08/2024
-
 - Chess method & test added
 
 ## 17/08/2024
-
 - Cree archivos "bord.py, piece.py y chess.py" Vacios.
 - Añadi una carpeta llamada "tests" con los archivos "test_bord.py, test_chess.py y test_piece.py" vacios. 
 - Añadi Changelog.md, .gitignore y __init__.py 
@@ -18,9 +16,20 @@
 
 ## 19/08/2024
 - cree las fichas king, pawn, queen, rook para importarlas a board y logre que funcionara el el test board
+
 ## 20/08/2024
 - añadi codigo chess
+
 ## 21/08/2024
 - añadi correcciones en el board 
+
 ## 22/08/2024
 - hice el codigo piece y sus tests
+
+## 22/08/2024
+- hice el codigo piece y sus tests
+
+## 23/08/2024
+- Complete board.py y sus tests 
+- arregle todas las piezas
+- Elimine main.py y chess.py (seguro lo vuelvo a crear en un futuro) 

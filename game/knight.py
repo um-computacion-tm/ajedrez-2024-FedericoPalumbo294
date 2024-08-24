@@ -4,7 +4,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from game.piece import Piece
 
-class Pawn(Piece):
+class Knight(Piece):
 
     def __init__(self, color):
         self.color = color
