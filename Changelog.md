@@ -30,6 +30,13 @@
 - hice el codigo piece y sus tests
 
 ## 23/08/2024
+- Agregue el codigo main
+
+## 24/08/204
 - Complete board.py y sus tests 
 - arregle todas las piezas
-- Elimine main.py y chess.py (seguro lo vuelvo a crear en un futuro) 
+- Elimine main.py y chess.py (seguro lo vuelvo a crear en un futuro)
+
+## 25/08/2024
+- Hice los movimientos de la torre(rook)
+- Agregue devuelta el chess.py para hacer las pruebas ahi
