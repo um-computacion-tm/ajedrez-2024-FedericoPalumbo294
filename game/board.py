@@ -1,9 +1,9 @@
-from .rook import Rook
-from .pawn import Pawn
-from .queen import Queen
-from .king import King
-from .bishop import Bishop
-from .knight import Knight
+from rook import Rook
+from pawn import Pawn
+from queen import Queen
+from king import King
+from bishop import Bishop
+from knight import Knight
 
 class Board:
 
@@ -61,9 +61,23 @@ class Board:
         for i in range(8):                 
             self.board[6][i] = Pawn("WHITE")
 
-            
+
     def get_piece(self, row, col):         
         # Devolver la pieza en la posición dada         
-        return self.board[row][col] 
-     
-chess_board = Board()
+        return self.board[row][col]
+
+    def move_piece(self, start_pos, end_pos):
+        piece = self.board[start_pos[0]][start_pos[1]]
+        if piece and piece.move(start_pos, end_pos, self.board):
+            self.board[end_pos[0]][end_pos[1]] = piece
+            self.board[start_pos[0]][start_pos[1]] = None
+            return True
+        return False
+
+    def display(self):
+        for row in self.board:
+            print(" ".join([str(piece) if piece else "." for piece in row]))
+                
+if __name__ == "__main__":
+    chess_board = Board()
+    chess_board.display()

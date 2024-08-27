@@ -40,3 +40,8 @@
 ## 25/08/2024
 - Hice los movimientos de la torre(rook)
 - Agregue devuelta el chess.py para hacer las pruebas ahi
+
+## 26/08/2024
+- Hice los movimientos del alfil en bishop.py
+- Agregue la funcion display para poder ver el ajedrez
+- E hice en el chess unas pruebas para ver como se movian las piezas

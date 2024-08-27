@@ -9,6 +9,9 @@ class Rook(Piece):
     def __init__(self, color):
         self.color = color
 
+    def __str__(self):
+        return 'R' if self.color == "WHITE" else 'r'
+
     def move(self, start_pos, end_pos, board):
 
         """Verifica si el movimiento de la torre es válido."""
