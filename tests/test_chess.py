@@ -1,6 +1,8 @@
 import unittest
 from unittest.mock import patch
-from chess import Chess, Board, Piece
+from game.chess import Chess
+from game.board import Board
+from game.piece import Piece
 
 class TestChess(unittest.TestCase):
 
