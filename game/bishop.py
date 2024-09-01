@@ -9,7 +9,7 @@ class Bishop(Piece):
         self.color = color
 
     def __str__(self):
-        return 'B' if self.color == "WHITE" else 'b'
+        return '♝' if self.color == "WHITE" else '♗'
 
     # Implementar la lógica de movimiento
     def move(self, start_pos, end_pos, board):

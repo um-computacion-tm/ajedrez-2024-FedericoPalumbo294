@@ -1,4 +1,4 @@
-#!/home/fede/Escritorio/Ajedrez/venv/bin/python3
+#!/home/federico-palumbo/Escritorio/Ajedres/ajedrez-2024-FedericoPalumbo294/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

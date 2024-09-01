@@ -1,9 +1,9 @@
-from rook import Rook
-from pawn import Pawn
-from queen import Queen
-from king import King
-from bishop import Bishop
-from knight import Knight
+from game.rook import Rook
+from game.pawn import Pawn
+from game.queen import Queen
+from game.king import King
+from game.bishop import Bishop
+from game.knight import Knight
 
 class Board:
 
@@ -13,7 +13,7 @@ class Board:
         self.setup_pieces()
 
     def setup_pieces(self):
-        ################################################################
+        #################################################################
         ################# Posicionamiento de piezas Negras ##############
         #################################################################
 

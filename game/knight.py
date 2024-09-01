@@ -10,8 +10,4 @@ class Knight(Piece):
         self.color = color
 
     def __str__(self):
-        return 'O' if self.color == "WHITE" else 'o'
-
-    # Implementar la lógica de movimiento
-    def move(self, start_pos, end_pos):
-        raise NotImplementedError("This method should be overridden by subclasses")
+        return '♞' if self.color == "WHITE" else '♘'

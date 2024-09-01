@@ -1,5 +1,5 @@
-from rook import Rook
-from bishop import Bishop
+from game.rook import Rook
+from game.bishop import Bishop
 
 class Chess:
     def __init__(self):
