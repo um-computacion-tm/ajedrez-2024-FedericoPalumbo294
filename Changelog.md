@@ -1,5 +1,9 @@
 # Changelog
 
+## 2/09/2024
+- Agregue los movimientos de knight
+- Arregle los tests de knight, bishop y pawn
+
 ## 1/09/2024
 - Arregle los tests de king
 - Agregue los movimientos de la queen y sus tests
