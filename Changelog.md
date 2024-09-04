@@ -1,5 +1,9 @@
 # Changelog
 
+## 3/09/2024
+- Agregue cli.py a game
+- Agregue los turnos y que se muestre el tablero cada vez que se mueva una pieza
+
 ## 2/09/2024
 - Agregue los movimientos de knight
 - Arregle los tests de knight, bishop y pawn

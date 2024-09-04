@@ -10,7 +10,7 @@ class Pawn(Piece):
         self.color = color
 
     def __str__(self):
-        return '♙' if self.color == "WHITE" else '♟' # Devuelve '♙' si el color del peón es blanco, sino devuelve '♟'
+        return '♟' if self.color == "WHITE" else '♙' # Devuelve '♟' si el color del peón es blanco, sino devuelve '♙'
 
     # Implementar la lógica de movimiento
     def move(self, start_pos, end_pos, board):
