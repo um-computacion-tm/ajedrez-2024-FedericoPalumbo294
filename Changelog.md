@@ -1,6 +1,9 @@
 # Changelog
 
 ## 4/09/2024
+- Agregue los test de cli.py
+
+## 4/09/2024
 - Agregue la funcion de que si muere el rey termina la partida en cli.py
 
 ## 3/09/2024
