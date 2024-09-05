@@ -3,6 +3,7 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from game.board import Board
+from game.king import King  # Asegúrate de importar la clase King
 
 class Game:
 
@@ -22,9 +23,15 @@ class Game:
 
         if piece and piece.color == self.turn:
             if piece.move(start_pos, end_pos, self.board.board):
+                captured_piece = self.board.board[end_row][end_col]
                 self.board.board[end_row][end_col] = piece
                 self.board.board[start_row][start_col] = None
                 self.turn = "BLACK" if self.turn == "WHITE" else "WHITE"
+                
+                if isinstance(captured_piece, King):
+                    print(f"El rey {captured_piece.color} ha sido capturado. ¡Juego terminado!")
+                    return False  # Termina el juego
+                
                 return True
         return False
 
@@ -36,10 +43,14 @@ class Game:
 
         if not self.move_piece(start_pos, end_pos):
             print("Movimiento inválido, intente de nuevo.")
+            return False  # Termina el juego si el movimiento es inválido y el rey ha sido capturado
+        self.print_board()  # Imprimir el tablero después de cada intento de movimiento
+        return True  # Continuar el juego si el movimiento es válido
 
     def play(self):
         while True:
-            self.play_turn()
+            if not self.play_turn():
+                break  # Termina el bucle si el juego ha terminado
 
 if __name__ == "__main__":
     game = Game()

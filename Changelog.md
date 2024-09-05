@@ -1,5 +1,8 @@
 # Changelog
 
+## 4/09/2024
+- Agregue la funcion de que si muere el rey termina la partida en cli.py
+
 ## 3/09/2024
 - Agregue cli.py a game
 - Agregue los turnos y que se muestre el tablero cada vez que se mueva una pieza
