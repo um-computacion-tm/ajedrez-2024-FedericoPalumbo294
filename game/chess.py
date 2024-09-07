@@ -17,7 +17,7 @@ class Chess:
         # Crear un alfil blanco en la posición (0, 2)
         self.board[0][2] = Bishop("WHITE")
 
-    def display(self):
+    def display(self):# Método para mostrar el tablero
         # Mostrar el tablero
         for row in self.board:
             print(" ".join([str(piece) if piece else "." for piece in row]))

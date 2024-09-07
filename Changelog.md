@@ -1,6 +1,9 @@
 # Changelog
 
-## 4/09/2024
+## 6/09/2024
+- Agregue comentarios a las funciones
+
+## 5/09/2024
 - Agregue los test de cli.py
 
 ## 4/09/2024

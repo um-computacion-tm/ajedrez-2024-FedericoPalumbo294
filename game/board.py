@@ -66,7 +66,7 @@ class Board:
         # Devolver la pieza en la posición dada         
         return self.board[row][col]
 
-    def move_piece(self, start_pos, end_pos):
+    def move_piece(self, start_pos, end_pos):# Método para mover una pieza
         piece = self.board[start_pos[0]][start_pos[1]]
         if piece and piece.move(start_pos, end_pos, self.board):
             self.board[end_pos[0]][end_pos[1]] = piece
@@ -74,7 +74,7 @@ class Board:
             return True
         return False
 
-    def display(self):
+    def display(self):# Método para mostrar el tablero
         for row in self.board:
             print(" ".join([str(piece) if piece else "." for piece in row]))
                 
