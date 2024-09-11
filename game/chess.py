@@ -1,40 +1,38 @@
-from game.rook import Rook
-from game.bishop import Bishop
+# game/chess.py
+from game.board import Board
+from game.piece import Piece
 
 class Chess:
     def __init__(self):
-        # Creamos una matriz de 8x8 para simular el tablero de ajedrez
-        self.board = [[None for _ in range(8)] for _ in range(8)]
-        self.setup_board()
+        self.board = Board()
+        self.turn = "WHITE"
 
-    def setup_board(self):
-        # Crear una torre blanca en la posición (0, 0)
-        self.board[0][0] = Rook("WHITE")
+    def move_piece(self, start_pos, end_pos):
+        if not self.is_within_bounds(start_pos) or not self.is_within_bounds(end_pos):
+            print("Coordenadas fuera de rango.")
+            return False
 
-        # Crear un obstáculo en la posición (0, 3)
-        self.board[0][3] = Rook("WHITE")
+        piece = self.board.get_piece(start_pos[0], start_pos[1])
+        if piece is None:
+            print("No hay pieza en la posición de origen.")
+            return False
 
-        # Crear un alfil blanco en la posición (0, 2)
-        self.board[0][2] = Bishop("WHITE")
+        if piece.color != self.turn:
+            print("No es tu turno.")
+            return False
 
-    def display(self):# Método para mostrar el tablero
-        # Mostrar el tablero
-        for row in self.board:
-            print(" ".join([str(piece) if piece else "." for piece in row]))
+        if not piece.move(start_pos, end_pos):
+            print("Movimiento inválido para la pieza.")
+            return False
 
-if __name__ == "__main__":
-    chess_game = Chess()
-    
-    # Crear una instancia del alfil en la posición inicial
-    bishop = chess_game.board[0][2]
+        target_piece = self.board.get_piece(end_pos[0], end_pos[1])
+        if target_piece is not None and target_piece.color == piece.color:
+            print("No puedes capturar tu propia pieza.")
+            return False
 
-    # Intentar mover el alfil a la posición (2, 4)
-    start_pos = (0, 2)
-    end_pos = (2, 4)
+        self.board.move_piece(start_pos[0], start_pos[1], end_pos[0], end_pos[1])
+        self.turn = "BLACK" if self.turn == "WHITE" else "WHITE"
+        return True
 
-    if bishop.move(start_pos, end_pos, chess_game.board):
-        chess_game.board[end_pos[0]][end_pos[1]] = bishop
-        chess_game.board[start_pos[0]][start_pos[1]] = None
-        chess_game.display()
-    else:
-        print("Movimiento inválido")
+    def is_within_bounds(self, pos):
+        return 0 <= pos[0] < 8 and 0 <= pos[1] < 8

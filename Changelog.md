@@ -1,5 +1,8 @@
 # Changelog
 
+## 10/09/2024
+- Arregle algunos tests que no funcionaban
+
 ## 6/09/2024
 - Agregue comentarios a las funciones
 
