@@ -35,3 +35,8 @@ Cuarto: Por ultimo necesito utilizar Docker para ejecutar mi juego:
 3.Ejecuta el contenedor: Ejecuar "docker run -it AJEDREZ" para ejecutar el juego dentro de un contenedor Docker.
 -->
 
+# Pasos para coverage
+<!--
+coverage run -m unittest && coverage xml && coverage report -m
+pip install -r requirements.txt
+-->

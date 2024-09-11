@@ -42,8 +42,10 @@ class Game:
         end_pos = tuple(map(int, input("Ingrese la posición final (fila columna): ").split()))
 
         if not self.move_piece(start_pos, end_pos):
+
             print("Movimiento inválido, intente de nuevo.")
-            return False  # Termina el juego si el movimiento es inválido y el rey ha sido capturado
+            return self.play_turn()  # Pedir entrada nuevamente si el movimiento es inválido
+        
         self.print_board()  # Imprimir el tablero después de cada intento de movimiento
         return True  # Continuar el juego si el movimiento es válido
 

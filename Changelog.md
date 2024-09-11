@@ -1,5 +1,8 @@
 # Changelog
 
+## 11/09/2024
+- Arregle codigo de cli.py para retomar el juego si hace un movimiento invalido 
+
 ## 10/09/2024
 - Arregle algunos tests que no funcionaban
 
