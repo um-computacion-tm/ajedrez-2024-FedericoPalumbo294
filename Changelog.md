@@ -1,5 +1,8 @@
 # Changelog
 
+## 12/09/2024
+- Corregi errores de rook.py y le agregue tests
+
 ## 11/09/2024
 - Arregle codigo de cli.py para retomar el juego si hace un movimiento invalido 
 
