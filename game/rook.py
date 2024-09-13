@@ -10,28 +10,31 @@ class Rook(Piece):
         self.color = color
 
     def __str__(self):
-        return '♜' if self.color == "WHITE" else '♖' # Devuelve '♜' si el color de la torre es white, sino devuelve '♖'
+        return '♜' if self.color == "WHITE" else '♖'  # Devuelve '♜' si el color de la torre es blanca, sino devuelve '♖'
 
-    # Implementar la lógica de movimiento
     def move(self, start_pos, end_pos, board):
+        start_row, start_col = start_pos
+        end_row, end_col = end_pos
 
-        start_row, start_col = start_pos # definimos la posición inicial con la fila y columna inicial
-        end_row, end_col = end_pos # definimos la posición final con la fila y columna final
+        # Verificar si el movimiento es horizontal o vertical
+        if start_row != end_row and start_col != end_col:
+            return False
 
-        # Movimiento horizontal o vertical
-        if start_row == end_row or start_col == end_col: # Verifica si la torre se mueve en forma horizontal o vertical
-            
-            if start_row == end_row:  # Movimiento horizontal
-                step = 1 if start_col < end_col else -1 # Define step = 1 (para la derecha) si la columna inicial < columna final o -1 para la izquierda
-                # Verificar si hay obstáculos en el camino
-                for col in range(start_col + step, end_col, step): # Recorre entre las columnas start_col y end_col en pasos de 'step'
-                    if board[start_row][col] is not None: # Verifica si hay una pieza en la posición donde esta del tablero
-                        return False
+        # Verificar que el camino esté despejado
+        row_diff = abs(end_row - start_row)
+        col_diff = abs(end_col - start_col)
+        step_row = (end_row - start_row) // max(1, row_diff)  # 1, -1 o 0
+        step_col = (end_col - start_col) // max(1, col_diff)  # 1, -1 o 0
 
-            else:  # Movimiento vertical
-                step = 1 if start_row < end_row else -1 # Define step = 1 (para abajo) si la fila inicial < fila final o -1 para arriba
-                for row in range(start_row + step, end_row, step): # Recorre entre las filas start_row y end_row en pasos de 'step'
-                    if board[row][start_col] is not None: # Verifica si hay una pieza en la posición donde esta del tablero
-                        return False
-            return True  # Movimiento válido
-        return False  # Movimiento inválido
+        current_row, current_col = start_row + step_row, start_col + step_col
+        while (current_row, current_col) != (end_row, end_col):
+            if board[current_row][current_col] is not None:
+                return False
+            current_row += step_row
+            current_col += step_col
+
+        # Verificar si la casilla de destino está vacía o contiene una pieza del oponente
+        if board[end_row][end_col] is None or board[end_row][end_col].color != self.color:
+            return True
+
+        return False
