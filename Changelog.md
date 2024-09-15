@@ -1,5 +1,8 @@
 # Changelog
 
+## 14/09/2024
+- Corregi codigos que se repetian en rook, bishop, knight, king 
+
 ## 12/09/2024
 - Corregi errores de rook.py y le agregue tests
 
