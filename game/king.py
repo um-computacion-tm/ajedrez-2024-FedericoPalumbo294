@@ -22,8 +22,9 @@ class King(Piece):
         col_diff = abs(end_col - start_col) # Calcula la diferencia entre la columna final y la columna inicial
 
         # El rey puede moverse una casilla en cualquier dirección
-        if row_diff <= 1 and col_diff <= 1: # Verifica si la diferencia que se movio es menor o igual a 1 en fila y columna
-            if board[end_row][end_col] is None or board[end_row][end_col].color != self.color: # Verificar si la casilla de destino está vacía o contiene una pieza del oponente
+        if row_diff <= 1 and col_diff <= 1:  # Verifica si la diferencia que se movió es menor o igual a 1 en fila y columna
+            destination_piece = board[end_row][end_col]
+            if destination_piece is None or destination_piece.color != self.color:  # Verificar si la casilla de destino está vacía o contiene una pieza del oponente
                 return True
 
         return False

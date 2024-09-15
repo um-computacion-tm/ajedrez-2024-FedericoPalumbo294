@@ -27,11 +27,13 @@ class Rook(Piece):
         step_col = (end_col - start_col) // max(1, col_diff)  # 1, -1 o 0
 
         current_row, current_col = start_row + step_row, start_col + step_col
-        while (current_row, current_col) != (end_row, end_col):
-            if board[current_row][current_col] is not None:
-                return False
+        while True:
             current_row += step_row
             current_col += step_col
+            if (current_row, current_col) == (end_row, end_col):
+                break
+            if board[current_row][current_col] is not None:
+                return False
 
         # Verificar si la casilla de destino está vacía o contiene una pieza del oponente
         if board[end_row][end_col] is None or board[end_row][end_col].color != self.color:
