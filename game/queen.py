@@ -35,7 +35,8 @@ class Queen(Piece):
             current_col += step_col
 
         # Verificar si la casilla de destino está vacía o contiene una pieza del oponente
-        if board[end_row][end_col] is None or board[end_row][end_col].color != self.color:
+        destination_piece = board[end_row][end_col]
+        if destination_piece is None or destination_piece.color != self.color:
             return True
 
         return False

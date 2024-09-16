@@ -1,5 +1,8 @@
 # Changelog
 
+## 16/09/2024
+- Modifique los codigos de queen, rook, king, knight y bishop donde se repetian
+
 ## 15/09/2024
 - Volvi a corregir codigos que se repetian
 

@@ -22,7 +22,7 @@ class Bishop(Piece):
             col_step = 1 if end_col > start_col else -1
 
             current_row, current_col = start_row + row_step, start_col + col_step
-            while current_row != end_row and current_col != end_col:
+            while (current_row, current_col) != (end_row, end_col):
                 if board[current_row][current_col] is not None:
                     return False
                 current_row += row_step
