@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
 from game.rook import Rook
 from game.pawn import Pawn
 from game.queen import Queen
@@ -34,8 +38,9 @@ class Board:
         self.board[0][4] = King("BLACK")   
 
         # Posicionamos Peones Negros:         
-        for i in range(8):                 
-            self.board[1][i] = Pawn("BLACK")
+        for i in range(8):
+            pawn = Pawn("BLACK")
+            self.board[1][i] = pawn
 
         ################################################################
         ############### Posicionamiento de piezas Blancas ##############
