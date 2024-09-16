@@ -36,7 +36,9 @@ class Rook(Piece):
                 return False
 
         # Verificar si la casilla de destino está vacía o contiene una pieza del oponente
-        if board[end_row][end_col] is None or board[end_row][end_col].color != self.color:
+        destination_piece = board[end_row][end_col]
+        is_empty_or_enemy = destination_piece is None or destination_piece.color != self.color
+        if is_empty_or_enemy:
             return True
 
         return False
