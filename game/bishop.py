@@ -1,6 +1,6 @@
-import sys 
-import os 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parent.parent))
 from game.piece import Piece
 
 class Bishop(Piece):

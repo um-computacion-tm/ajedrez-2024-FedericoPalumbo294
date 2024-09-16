@@ -1,4 +1,7 @@
-# game/chess.py
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from game.board import Board
 from game.piece import Piece
 
@@ -32,7 +35,8 @@ class Chess:
 
         self.board.move_piece(start_pos[0], start_pos[1], end_pos[0], end_pos[1])
         self.turn = "BLACK" if self.turn == "WHITE" else "WHITE"
-        return True
+        success = True
+        return success
 
     def is_within_bounds(self, pos):
         return 0 <= pos[0] < 8 and 0 <= pos[1] < 8

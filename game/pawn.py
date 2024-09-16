@@ -1,6 +1,6 @@
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 from game.piece import Piece
 
@@ -14,11 +14,15 @@ class Pawn(Piece):
 
     # Implementar la lógica de movimiento
     def move(self, start_pos, end_pos, board):
+        # Descomponer las posiciones inicial y final en filas y columnas
+        start_row, start_col = start_pos
+        end_row, end_col = end_pos
 
-        start_row, start_col = start_pos # Definimos la posición inicial con la fila y columna inicial
-        end_row, end_col = end_pos # Definimos la posición final con la fila y columna final
-
-        direction = -1 if self.color == "WHITE" else 1 # Definir la dirección del movimiento según el color del peón
+        # Determinar la dirección del movimiento basado en el color del peón
+        if self.color == "WHITE":
+            direction = -1
+        else:
+            direction = 1
 
         # Movimiento de una casilla hacia adelante
         if start_col == end_col and board[end_row][end_col] is None:

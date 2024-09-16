@@ -1,5 +1,8 @@
 # Changelog
 
+## 15/09/2024
+- Volvi a corregir codigos que se repetian
+
 ## 14/09/2024
 - Corregi codigos que se repetian en rook, bishop, knight, king 
 
