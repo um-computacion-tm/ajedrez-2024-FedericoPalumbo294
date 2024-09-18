@@ -28,7 +28,7 @@ class Queen(Piece):
         step_col = (end_col - start_col) // max(1, col_diff)  # 1, -1 o 0
 
         current_row, current_col = start_row + step_row, start_col + step_col
-        while (current_row, current_col) != (end_row, end_col):
+        while current_row != end_row or current_col != end_col:
             if board[current_row][current_col] is not None:
                 return False
             current_row += step_row
