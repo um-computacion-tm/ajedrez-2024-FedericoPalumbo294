@@ -21,12 +21,11 @@ class Bishop(Piece):
             row_step = 1 if end_row > start_row else -1
             col_step = 1 if end_col > start_col else -1
 
-            current_row, current_col = start_row + row_step, start_col + col_step
-            while current_row != end_row or current_col != end_col:
+            # Recorre la ruta diagonal
+            for current_row, current_col in zip(range(start_row + row_step, end_row, row_step),
+                                                range(start_col + col_step, end_col, col_step)):
                 if board[current_row][current_col] is not None:
                     return False
-                current_row += row_step
-                current_col += col_step
 
             # Verificar si la casilla de destino está vacía o contiene una pieza del oponente
             destination_piece = board[end_row][end_col]
