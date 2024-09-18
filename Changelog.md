@@ -1,5 +1,8 @@
 # Changelog
 
+## 17/09/2024
+- Modifique los la funcion de movimiento del bishop, queen y pawn donde se repetian y mejore el porcentaje de mi coverage
+
 ## 16/09/2024
 - Modifique los codigos de queen, rook, king, knight y bishop donde se repetian
 

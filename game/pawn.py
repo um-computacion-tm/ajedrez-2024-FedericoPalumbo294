@@ -15,8 +15,10 @@ class Pawn(Piece):
     # Implementar la lógica de movimiento
     def move(self, start_pos, end_pos, board):
         # Descomponer las posiciones inicial y final en filas y columnas
-        start_row, start_col = start_pos
-        end_row, end_col = end_pos
+        start_row = start_pos[0]
+        start_col = start_pos[1]
+        end_row = end_pos[0]
+        end_col = end_pos[1]
 
         # Determinar la dirección del movimiento basado en el color del peón
         if self.color == "WHITE":
