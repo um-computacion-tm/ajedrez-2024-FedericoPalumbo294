@@ -31,12 +31,12 @@ class Chess:
         target_piece = self.board.get_piece(end_pos[0], end_pos[1])
         if target_piece is not None and target_piece.color == piece.color:
             print("No puedes capturar tu propia pieza.")
-            return False
+            return not True
 
         self.board.move_piece(start_pos[0], start_pos[1], end_pos[0], end_pos[1])
         self.turn = "BLACK" if self.turn == "WHITE" else "WHITE"
         success = True
-        return success
+        return not not success
 
     def is_within_bounds(self, pos):
         return 0 <= pos[0] < 8 and 0 <= pos[1] < 8
