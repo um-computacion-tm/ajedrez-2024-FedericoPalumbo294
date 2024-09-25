@@ -10,7 +10,7 @@ class Queen(Piece):
         self.color = color
 
     def __str__(self):
-        return '♛' if self.color == "WHITE" else '♕'  # Devuelve '♛' si el color de la torre es blanca, sino devuelve '♕'
+        return '♛' if self.color == "WHITE" else '♕'  # Símbolos para la reina
 
     def is_path_clear(self, start_pos, end_pos, board):
         start_row, start_col = start_pos
@@ -21,7 +21,8 @@ class Queen(Piece):
 
         current_row, current_col = start_row + step_row, start_col + step_col
 
-        for _ in range(max(abs(end_row - start_row), abs(end_col - start_col)) - 1):
+        # Verificar el camino hasta la posición final
+        while (current_row, current_col) != (end_row, end_col):
             if board[current_row][current_col] is not None:
                 return False
             current_row += step_row
@@ -37,7 +38,7 @@ class Queen(Piece):
         col_diff = abs(end_col - start_col)
 
         # Verificar si el movimiento es horizontal, vertical o diagonal
-        if row_diff != col_diff and start_row != end_row and start_col != end_col:  # Verifica si el movimiento es diagonal, horizontal o vertical
+        if not (row_diff == 0 or col_diff == 0 or row_diff == col_diff):
             return False
 
         # Verificar que el camino esté despejado

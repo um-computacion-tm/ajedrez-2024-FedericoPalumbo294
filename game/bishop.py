@@ -9,7 +9,7 @@ class Bishop(Piece):
         self.color = color
 
     def __str__(self):
-        return '♝' if self.color == "WHITE" else '♗'
+        return '♝' if self.color == "WHITE" else '♗'  # Símbolos para el alfil
 
     # Implementar la lógica de movimiento
     def move(self, start_pos, end_pos, board):
@@ -25,10 +25,10 @@ class Bishop(Piece):
             for current_row, current_col in zip(range(start_row + row_step, end_row, row_step),
                                                 range(start_col + col_step, end_col, col_step)):
                 if board[current_row][current_col] is not None:
-                    return False
+                    return False  # Camino no despejado
 
             # Verificar si la casilla de destino está vacía o contiene una pieza del oponente
             destination_piece = board[end_row][end_col]
-            if destination_piece is None or destination_piece.color != self.color:
-                return True
-        return False
+            return destination_piece is None or destination_piece.color != self.color
+
+        return False  # Movimiento no válido

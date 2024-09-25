@@ -1,5 +1,8 @@
 # Changelog
 
+## 24/09/2024
+- cree un test para la funcion de guardar la partida
+
 ## 18/09/2024
 - Cambie el codigo de queen y rook para que no se parezcan
 
