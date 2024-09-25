@@ -107,5 +107,11 @@ class TestChess(unittest.TestCase):
         # Verificar que el turno cambió a WHITE
         self.assertEqual(juego.turn, "WHITE")
 
+    def test_is_within_bounds(self):
+        juego = Chess()
+        self.assertTrue(juego.is_within_bounds((0, 0)))
+        self.assertFalse(juego.is_within_bounds((8, 0)))  # Coordenadas fuera de rango
+        self.assertFalse(juego.is_within_bounds((0, 8)))  # Coordenadas fuera de rango
+
 if __name__ == '__main__':
     unittest.main()

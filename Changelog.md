@@ -1,7 +1,13 @@
 # Changelog
 
+## 25/09/2024
+- Mejore el tests de cli.py para mejorar el porcentaje del coverage
+
 ## 24/09/2024
-- cree un test para la funcion de guardar la partida
+- Cree un test para la funcion de guardar la partida
+
+## 23/09/2024
+- Creo la funcion para poder guardar una partida y cargar una partida en cli.py
 
 ## 18/09/2024
 - Cambie el codigo de queen y rook para que no se parezcan

@@ -109,6 +109,10 @@ class Game:
         elif action == 'r':
             self.__init__()
 
+        else:
+            print("Acción inválida.")
+            return False
+
         self.print_board()
         return True
 
