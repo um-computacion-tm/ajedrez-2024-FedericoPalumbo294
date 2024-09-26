@@ -25,8 +25,12 @@ class Rook(Piece):
             return False
 
         # Verificar que el camino esté despejado
-        step_row = (end_row - start_row) // max(1, abs(end_row - start_row)) if start_row != end_row else 0
-        step_col = (end_col - start_col) // max(1, abs(end_col - start_col)) if start_col != end_col else 0
+        def calculate_step(start, end):
+            return (end - start) // max(1, abs(end - start)) if start != end else 0
+
+        step_row = calculate_step(start_row, end_row)
+        step_col = calculate_step(start_col, end_col)
+
 
         current_row, current_col = start_row + step_row, start_col + step_col
         

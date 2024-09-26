@@ -9,7 +9,7 @@ class King(Piece):
         self.color = color
 
     def __str__(self):
-        return '♔' if self.color == "WHITE" else '♚'  # Usa los símbolos correctos para las piezas
+        return '♚' if self.color == "WHITE" else '♔'  # Usa los símbolos correctos para las piezas
 
     # Implementar la lógica de movimiento
     def move(self, start_pos, end_pos, board):

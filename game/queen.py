@@ -22,11 +22,12 @@ class Queen(Piece):
         current_row, current_col = start_row + step_row, start_col + step_col
 
         # Verificar el camino hasta la posición final
-        while (current_row, current_col) != (end_row, end_col):
+        for _ in range(max(abs(end_row - current_row), abs(end_col - current_col))):
             if board[current_row][current_col] is not None:
                 return False
             current_row += step_row
             current_col += step_col
+
 
         return True
 
