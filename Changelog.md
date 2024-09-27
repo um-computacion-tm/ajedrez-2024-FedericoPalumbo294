@@ -1,5 +1,11 @@
 # Changelog
 
+## 27/09/2024
+- Cambie la funciones de move que se repetian en queen, rook
+
+## 26/09/2024
+- Cambie la funciones que se repetian en queen, rook y pawn
+
 ## 25/09/2024
 - Mejore el tests de cli.py para mejorar el porcentaje del coverage
 

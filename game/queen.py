@@ -25,8 +25,8 @@ class Queen(Piece):
         for _ in range(max(abs(end_row - current_row), abs(end_col - current_col))):
             if board[current_row][current_col] is not None:
                 return False
-            current_row += step_row
-            current_col += step_col
+            current_row = current_row + step_row
+            current_col = current_col + step_col
 
 
         return True

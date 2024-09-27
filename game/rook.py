@@ -40,6 +40,10 @@ class Rook(Piece):
                 return False
             current_row += step_row
             current_col += step_col
+            if (current_row, current_col) == (end_row, end_col):
+                break
+   
+
 
         # Verificar si la casilla de destino está vacía o contiene una pieza del oponente
         destination_piece = board[end_row][end_col]
