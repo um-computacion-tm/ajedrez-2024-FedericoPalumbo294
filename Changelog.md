@@ -1,5 +1,8 @@
 # Changelog
 
+## 28/09/2024
+- Cambie las funciones que se repetian en queen, chess y el cli
+
 ## 27/09/2024
 - Cambie la funciones de move que se repetian en queen, rook
 
