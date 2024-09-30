@@ -1,4 +1,6 @@
 # Changelog
+## 29/09/2024
+- Mejore el coverage de chess y cli
 
 ## 28/09/2024
 - Cambie las funciones que se repetian en queen, chess y el cli

@@ -32,6 +32,24 @@ class TestGame(unittest.TestCase):
     def test_move_piece_no_piece(self):
         self.assertFalse(self.game.move_piece((0, 0), (1, 1)))  # Línea 40
 
+    def test_move_piece_capture_king(self):
+        # Colocar un rey negro en la posición 1,1
+        self.game.board.board[1][1] = King("BLACK")
+        self.game.turn = "WHITE"
+        
+        # Simulamos que hay una pieza blanca que puede capturar al rey
+        self.game.board.board[0][0] = King("WHITE")  # O alguna otra pieza blanca capaz de moverse
+        
+        with patch('builtins.print') as mocked_print:
+            # Mover la pieza blanca para capturar al rey negro
+            result = self.game.move_piece((0, 0), (1, 1))  
+            
+            # Verificar que el resultado es False (indicando que el juego termina)
+            self.assertFalse(result)
+            
+            # Verificar que se imprimió el mensaje correcto
+            mocked_print.assert_called_with("El rey BLACK ha sido capturado. ¡Juego terminado!")
+
     def test_save_game(self):
         with patch('builtins.open', mock_open()) as mocked_file:
             with patch('json.dump') as mocked_json_dump:
@@ -60,6 +78,19 @@ class TestGame(unittest.TestCase):
             with patch('builtins.print') as mocked_print:
                 self.game.load_game()
                 self.assertTrue(mocked_print.called)
+
+    def test_play_turn_invalid_move_retry(self):
+        # Simula un movimiento inválido seguido de uno válido
+        with patch('builtins.input', side_effect=['m', '0 0', '1 1', 'm', '0 1', '1 1']):
+            with patch.object(self.game, 'move_piece', side_effect=[False, True]):
+                with patch('builtins.print') as mocked_print:
+                    self.game.play_turn()  # Línea 104
+
+                    # Verificar que el mensaje de movimiento inválido se imprimió
+                    mocked_print.assert_any_call("Movimiento inválido, intente de nuevo.")
+
+                    # Verificar que se realizó una nueva llamada a move_piece
+                    self.assertEqual(self.game.move_piece.call_count, 2)
 
     def test_play_turn_move(self):
         with patch('builtins.input', side_effect=['m', '0 0', '1 1']):

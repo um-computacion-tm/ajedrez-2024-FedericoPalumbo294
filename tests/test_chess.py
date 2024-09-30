@@ -12,6 +12,29 @@ from game.piece import Piece
 
 class TestChess(unittest.TestCase):
 
+    # Test agregado para cubrir la línea 25 (validar turno incorrecto)
+    @patch('game.board.Board.get_piece')
+    @patch('builtins.print')
+    def test_not_your_turn(self, mock_print, mock_get_piece):
+        juego = Chess()
+        board = Board()
+        
+        # Simulamos que es el turno de las blancas
+        juego.turn = "WHITE"
+        
+        # Creamos una pieza negra
+        piece_black = Piece("BLACK", board)
+        mock_get_piece.return_value = piece_black
+        
+        # Intentamos mover la pieza negra cuando es el turno de las blancas
+        result = juego.move_piece((0, 0), (1, 1))
+        
+        # Verificar que el método retorna False
+        self.assertFalse(result)
+        
+        # Verificar que se imprimió el mensaje correcto
+        mock_print.assert_called_with("No es tu turno.")
+    
     @patch('game.board.Board.get_piece', return_value=None)
     @patch('builtins.print')
     def test_no_piece_in_origin(self, mock_print, mock_get_piece):
