@@ -71,23 +71,20 @@ class Game:
     def create_piece(self, piece_str):
         if piece_str is None:
             return None
+
         piece_color = "WHITE" if piece_str[0] == 'W' else "BLACK"  # Determinar el color basado en la primera letra
         piece_type = piece_str[1]  # Obtener el tipo de pieza
 
-        if piece_type == 'K':
-            return King(piece_color)
-        elif piece_type == 'Q':
-            return Queen(piece_color)
-        elif piece_type == 'R':
-            return Rook(piece_color)
-        elif piece_type == 'B':
-            return Bishop(piece_color)
-        elif piece_type == 'N':
-            return Knight(piece_color)
-        elif piece_type == 'P':
-            return Pawn(piece_color)
+        piece_classes = {
+            'K': King,
+            'Q': Queen,
+            'R': Rook,
+            'B': Bishop,
+            'N': Knight,
+            'P': Pawn
+        }
 
-        return None  # Solo un retorno al final
+        return piece_classes.get(piece_type, lambda color: None)(piece_color)
 
     def play_turn(self):
         self.print_board()

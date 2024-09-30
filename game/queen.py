@@ -16,7 +16,7 @@ class Queen(Piece):
         start_row, start_col = start_pos
         end_row, end_col = end_pos
 
-        step_row = (end_row - start_row) // max(1, abs(end_row - start_row))  # 1, -1 o 0
+        step_row = (end_row - start_row) and (end_row - start_row) // abs(end_row - start_row)
         step_col = (end_col - start_col) // max(1, abs(end_col - start_col))  # 1, -1 o 0
 
         current_row, current_col = start_row + step_row, start_col + step_col
