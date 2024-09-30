@@ -1,4 +1,8 @@
 # Changelog
+
+## 30/09/2024
+- Termine de cubrir todas las lineas no cubiertas de chess.py y cli.py, ahora mi coverage es de 100%
+
 ## 29/09/2024
 - Mejore el coverage de chess y cli
 
