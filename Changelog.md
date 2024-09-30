@@ -2,6 +2,7 @@
 
 ## 30/09/2024
 - Termine de cubrir todas las lineas no cubiertas de chess.py y cli.py, ahora mi coverage es de 100%
+- Optimize la mayor cantidad de returns que hay en el codigo cli y chess para megorar la nota de code climate
 
 ## 29/09/2024
 - Mejore el coverage de chess y cli
