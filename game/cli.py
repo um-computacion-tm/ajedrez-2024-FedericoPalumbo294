@@ -83,13 +83,11 @@ class Game:
         elif piece_type == 'B':
             return Bishop(piece_color)
         elif piece_type == 'N':
-            knight = Knight(piece_color)
-            return knight
-
+            return Knight(piece_color)
         elif piece_type == 'P':
             return Pawn(piece_color)
-        NO_VALUE = None
-        return NO_VALUE
+
+        return None  # Solo un retorno al final
 
     def play_turn(self):
         self.print_board()
