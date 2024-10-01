@@ -2,6 +2,7 @@
 
 ## 1/10/2024
 - Termine con code climate con respecto a chess y pawn
+- Agregue Dockerfile
 
 ## 30/09/2024
 - Termine de cubrir todas las lineas no cubiertas de chess.py y cli.py, ahora mi coverage es de 100%
