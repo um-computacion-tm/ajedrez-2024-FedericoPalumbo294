@@ -84,5 +84,10 @@ class TestPawn(unittest.TestCase):
         self.board[2][4] = Piece("BLACK", self.board)
         self.assertFalse(self.black_pawn.move((1, 4), (3, 4), self.board))
 
+    def test_invalid_double_move_not_initial_position(self):
+        # Probar el caso donde no se permite un movimiento de dos casillas (peón no en posición inicial)
+        self.board[4][4] = self.white_pawn  # Mover el peón blanco fuera de su posición inicial
+        self.assertFalse(self.white_pawn.move((4, 4), (2, 4), self.board))  # Movimiento de dos casillas no permitido
+
 if __name__ == '__main__':
     unittest.main()
