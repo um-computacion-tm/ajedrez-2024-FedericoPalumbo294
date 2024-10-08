@@ -1,5 +1,8 @@
 # Changelog
 
+## 8/10/2024
+- Saque la funcion de poder guardar la partida por varios problemas 
+
 ## 1/10/2024
 - Termine con code climate con respecto a chess y pawn
 - Agregue Dockerfile

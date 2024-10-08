@@ -31,42 +31,18 @@ class Game:
         if piece and piece.color == self.turn:
             if piece.move(start_pos, end_pos, self.board.board):
                 captured_piece = self.board.board[end_row][end_col]
-                self.board.board[end_row][end_col] = piece
-                self.board.board[start_row][start_col] = None
-                self.turn = "BLACK" if self.turn == "WHITE" else "WHITE"
+                # Solo mover si la pieza de destino es nula o es del color opuesto
+                if captured_piece is None or captured_piece.color != piece.color:
+                    self.board.board[end_row][end_col] = piece
+                    self.board.board[start_row][start_col] = None
+                    self.turn = "BLACK" if self.turn == "WHITE" else "WHITE"
 
-                if isinstance(captured_piece, King):
-                    print(f"El rey {captured_piece.color} ha sido capturado. ¡Juego terminado!")
-                    return False
+                    if isinstance(captured_piece, King):
+                        print(f"El rey {captured_piece.color} ha sido capturado. ¡Juego terminado!")
+                        return False
 
-                return True
+                    return True
         return False
-
-    def save_game(self, filename="savegame.json"):
-        game_state = {
-            "board": [[self.serialize_piece(piece) for piece in row] for row in self.board.board],
-            "turn": self.turn
-        }
-        with open(filename, 'w') as f:
-            json.dump(game_state, f)
-        print("Partida guardada exitosamente.")
-
-    def serialize_piece(self, piece):
-        if piece is None:
-            return None
-        return f"{piece.color[0]}{piece.__class__.__name__[0]}"  # Guardar como "WK", "BQ", etc.
-
-    def load_game(self, filename="savegame.json"):
-        try:
-            with open(filename, 'r') as f:
-                game_state = json.load(f)
-                self.board.board = [[self.create_piece(piece) for piece in row] for row in game_state['board']]
-                self.turn = game_state['turn']
-            print("Partida cargada exitosamente.")
-        except FileNotFoundError:
-            print("No se encontró el archivo de partida guardada.")
-        except Exception as e:
-            print(f"Ocurrió un error al cargar la partida: {e}")
 
     def create_piece(self, piece_str):
         if piece_str is None:
@@ -84,12 +60,18 @@ class Game:
             'P': Pawn
         }
 
-        return piece_classes.get(piece_type, lambda color: None)(piece_color)
+        # Crear la pieza sin duplicados
+        piece_class = piece_classes.get(piece_type)
+        if piece_class:
+            return piece_class(piece_color)  # Crear la pieza
+        else:
+            print(f"Error: Tipo de pieza desconocido '{piece_type}'")
+            return None
 
     def play_turn(self):
         self.print_board()
         print(f"Turno de {self.turn}")
-        action = input("Ingrese 'm' para mover, 's' para guardar, 'c' para cargar, o 'r' para reiniciar: ")
+        action = input("Ingrese 'm' para mover, o 'r' para reiniciar: ")
 
         if action == 'm':
             start_pos = tuple(map(int, input("Ingrese la posición inicial (fila columna): ").split()))
@@ -97,12 +79,6 @@ class Game:
             if not self.move_piece(start_pos, end_pos):
                 print("Movimiento inválido, intente de nuevo.")
                 return self.play_turn()
-
-        elif action == 's':
-            self.save_game()
-
-        elif action == 'c':
-            self.load_game()
 
         elif action == 'r':
             self.__init__()
