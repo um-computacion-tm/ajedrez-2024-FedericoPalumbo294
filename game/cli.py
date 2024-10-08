@@ -111,7 +111,6 @@ class Game:
             print("Acción inválida.")
             return False
 
-        self.print_board()
         return True
 
     def play(self):
