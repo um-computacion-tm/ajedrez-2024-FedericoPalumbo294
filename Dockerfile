@@ -1,14 +1,12 @@
 # Usa una imagen base de Python
 FROM python:3.12-slim
+RUN apk update
+RUN apk add git
 
-# Establece el directorio de trabajo
-WORKDIR /app
+RUN git clone https://github.com/um-computacion-tm/ajedrez-2024-FedericoPalumbo294
 
-# Copia los archivos del proyecto al contenedor
-COPY . .
+WORKDIR /ajedrez-2024-FedericoPalumbo294
 
-# Instala las dependencias del proyecto
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
-# Comando para ejecutar tu aplicación
-CMD ["python", "cli.py"]
+CMD [ "sh", "-c", "coverage run -m unittest && coverage report -m && python -m game.cli " ]
